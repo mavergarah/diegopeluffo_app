@@ -1,4 +1,5 @@
 from django.db import models
+from django_summernote.fields import SummernoteTextField
 
 # Create your models here.
 class PersonalInfo(models.Model):
@@ -15,8 +16,8 @@ class PersonalInfo(models.Model):
         verbose_name="Email"
     )
 
-    profile = models.TextField(
-        max_length=3000,
+    profile = SummernoteTextField(
+        max_length=5000,
         blank=True,
         null=True,
         verbose_name="Professional Profile",

@@ -26,6 +26,7 @@ admin.site.site_header = 'Diego Peluffo - Administrator'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 # Dado que, en el model los campos IMAGE generan una url para cada imagen

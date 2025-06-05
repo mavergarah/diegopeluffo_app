@@ -14,7 +14,7 @@
                 {{ personal.city }} · {{ personal.website }} · {{ personal.phone }} ·
                     <a href="mailto:name@email.com">{{ personal.email }}</a>
             </div>
-            <p class="lead mb-5">{{ personal.profile }}</p>
+            <p class="lead mb-5">{{ personal.profile|safe }}</p>
             <div class="social-icons">
                 <a class="social-icon" href="{{ personal.linkedin_url }}"><i class="fab fa-linkedin-in"></i></a>
                 <a class="social-icon" href="{{ personal.researchgate_url }}"><i class="fab fa-researchgate"></i></a>
