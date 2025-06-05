@@ -1,0 +1,35 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Journals{% endblock %}
+
+{% block content%}
+    <section class="resume-section" id="books_and_theses">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Books</h2>
+            {% for book in books %}
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">{{ book.title }}</h3>
+                    <div class="subheading mb-3">{{ book.authors }}</div>
+                    <p>{{ book.publishing }}</p>
+                    <p>{{ book.category }}</p>
+                    <p>{{ book.isbn }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <h2 class="mb-5">Theses</h2>
+            {% for thes in theses %}
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">{{ thes.title }}</h3>
+                    <div class="subheading mb-3">{{ thes.author }}</div>
+                    <p>{{ thes.publishing }}</p>
+                    <p>{{ thes.category }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

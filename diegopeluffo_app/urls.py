@@ -26,6 +26,7 @@ admin.site.site_header = 'Diego Peluffo - Administrator'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name = 'home'),
+    path('publications/', include('publications.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 

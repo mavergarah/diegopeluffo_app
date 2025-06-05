@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diegopeluffo_app',
     'personalinfo',
+    'publications',
     'django_summernote',
 ]
 

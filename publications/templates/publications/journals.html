@@ -1,0 +1,14 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Journals{% endblock %}
+
+{% block content%}
+    <section class="resume-section" id="journals">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Journals/Conference Papers</h2>
+            <p>It may take some time to be displayed.</p>
+            <script src="{{ bibbase.bibbase_url }}"></script>
+        </div>
+    </section>
+{% endblock %}
