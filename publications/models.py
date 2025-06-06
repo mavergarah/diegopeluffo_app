@@ -18,7 +18,7 @@ class JournalInfo(models.Model):
 
 class BookInfo(models.Model):
     title = models.TextField(
-        max_length=100,
+        max_length=200,
         blank=True,
         null=True,
         verbose_name="Title",
@@ -68,7 +68,7 @@ class BookInfo(models.Model):
 
 class ThesesInfo(models.Model):
     title = models.TextField(
-        max_length=100,
+        max_length=200,
         blank=True,
         null=True,
         verbose_name="Title",

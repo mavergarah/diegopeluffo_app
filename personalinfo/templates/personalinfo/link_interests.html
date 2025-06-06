@@ -1,0 +1,19 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Research Lines {% endblock %}
+
+{% block content %}
+  <section class="resume-section" id="research">
+      <div class="resume-section-content">
+          <h2 class="mb-5">Link of Interest</h2>
+          {% for link in links %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                <h3 class="mb-0"><a href="#">{{ link.title }}</a></h3>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+{% endblock %}

@@ -17,7 +17,7 @@ class PersonalInfo(models.Model):
     )
 
     profile = SummernoteTextField(
-        max_length=5000,
+        max_length=10000,
         blank=True,
         null=True,
         verbose_name="Professional Profile",
@@ -76,3 +76,54 @@ class PersonalInfo(models.Model):
     class Meta:
         verbose_name = "Personal Info"
         verbose_name_plural = "Infos"
+
+class LinkInterest(models.Model):
+    title = models.TextField(
+        max_length=200,
+        blank=True,
+        null=True,
+        verbose_name="Link Title",
+    )
+
+    url = models.URLField(
+        max_length=300,
+        blank=True,
+        null=True,
+        verbose_name="Link URL"
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Link"
+        verbose_name_plural = "Links"
+
+class ResearchLine(models.Model):
+    title = models.TextField(
+        max_length=200,
+        blank=True,
+        null=True,
+        verbose_name="Research Title",
+    )
+
+    description = models.TextField(
+        max_length=3000,
+        blank=True,
+        null=True,
+        verbose_name="Research Description",
+    )
+
+    url = models.URLField(
+        max_length=300,
+        blank=True,
+        null=True,
+        verbose_name="Research URL"
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Research"
+        verbose_name_plural = "Researches"
