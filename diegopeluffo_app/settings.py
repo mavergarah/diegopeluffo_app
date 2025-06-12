@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'diegopeluffo_app',
     'personalinfo',
     'publications',
+    'prolaborations',
     'django_summernote',
 ]
 

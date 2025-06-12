@@ -1,0 +1,41 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Projects {% endblock %}
+
+{% block content %}
+  <section class="resume-section" id="research">
+      <div class="resume-section-content">
+          <h2 class="mb-5">Projects</h2>
+          {% if current == True %}
+          <h3 class="mb-0">Current Research Projects</h3>
+          <hr>
+          {% for project in projects %}
+          {% if project.kind_of_project == 1 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h3 class="mb-0"><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></h3>
+                  <p>{{ project.description }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+          {% if past == True %}
+          <h3 class="mb-0">Past Research Projects</h3>
+          <hr>
+          {% for project in projects %}
+          {% if project.kind_of_project == 2 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h3 class="mb-0"><a href="{{ project.url }}" target="_blank">{{ project.title }}</a></h3>
+                  <p>{{ project.description }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+      </div>
+  </section>
+{% endblock %}

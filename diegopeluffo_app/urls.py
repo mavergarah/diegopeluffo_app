@@ -28,6 +28,7 @@ urlpatterns = [
     path('', views.home, name = 'home'),
     path('publications/', include('publications.urls')),
     path('personal/', include('personalinfo.urls')),
+    path('prolaborations/', include('prolaborations.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 

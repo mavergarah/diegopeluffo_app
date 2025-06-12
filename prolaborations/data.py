@@ -1,0 +1,7 @@
+KIND_CHOICE_C = 1
+KIND_CHOICE_P = 2
+
+KIND_CHOICES = (
+    (KIND_CHOICE_C, 'Current'),
+    (KIND_CHOICE_P, 'Past'),
+)
