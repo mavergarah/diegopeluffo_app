@@ -1,0 +1,21 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Subjects/Courses {% endblock %}
+
+{% block content %}
+  <section class="resume-section" id="research">
+      <div class="resume-section-content">
+          <h2 class="mb-5">Subjects/Courses</h2>
+          <hr>
+          {% for course in courses %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h3 class="mb-0"><a href="{{ project.url }}" target="_blank">{{ course.title }}</a></h3>
+                  <p>{{ course.description }}</p>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+{% endblock %}

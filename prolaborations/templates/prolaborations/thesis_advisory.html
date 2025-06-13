@@ -1,0 +1,56 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Thesis Advisory {% endblock %}
+
+{% block content %}
+  <section class="resume-section" id="research">
+      <div class="resume-section-content">
+          <h2 class="mb-5">Thesis Advisory</h2>
+          {% if phd == True %}
+          <h3 class="mb-0">PhD Theses</h3>
+          <hr>
+          {% for thesis in theses %}
+          {% if thesis.kind_of_thesis == 1 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h4 class="mb-0"><a href="{{ thesis.url }}" target="_blank">{{ thesis.title }}</a></h4>
+                  <p>by {{ thesis.authors }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+          {% if master == True %}
+          <h3 class="mb-0">Master's Final Projets/theses</h3>
+          <hr>
+          {% for thesis in theses %}
+          {% if thesis.kind_of_thesis == 2 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h4 class="mb-0"><a href="{{ thesis.url }}" target="_blank">{{ thesis.title }}</a></h4>
+                  <p>by {{ thesis.authors }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+          {% if under == True %}
+          <h3 class="mb-0">Undergraduate Final Projects/theses</h3>
+          <hr>
+          {% for thesis in theses %}
+          {% if thesis.kind_of_thesis == 3 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h4 class="mb-0"><a href="{{ thesis.url }}" target="_blank">{{ thesis.title }}</a></h4>
+                  <p>by {{ thesis.authors }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+      </div>
+  </section>
+{% endblock %}

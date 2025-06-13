@@ -1,0 +1,22 @@
+{% extends "app/index.html" %}
+{% load static %}
+
+{% block title %}Collaborations {% endblock %}
+
+{% block content %}
+  <section class="resume-section" id="research">
+      <div class="resume-section-content">
+          <h2 class="mb-5">Guest editor/Invited talks/</h2>
+          <h2 class="mb-5">Organizing committee/Program committee</h2>
+          <h3 class="mb-0">Current Research Projects</h3>
+          <hr>
+          {% for collaboration in collaborations %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h4 class="mb-0"><a href="{{ collaboration.url }}" target="_blank">{{ collaboration.title }}</a></h4>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+{% endblock %}
