@@ -1,0 +1,23 @@
+services:
+  nginx:
+    image: nginx:stable-alpine
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+
+  postgres:
+    image: postgres:16-alpine
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Aquí se REFERENCIA el volumen
+
+  app:
+    image: diegopeluffo_web
+    build: .
+    volumes:
+      - .:/app
+    env_file: .env
+    restart: on-failure
+    command: sh ./scripts/dev.sh
+
+volumes:
+  postgres_data:
