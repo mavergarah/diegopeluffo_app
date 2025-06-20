@@ -6,14 +6,55 @@
 {% block content %}
   <section class="resume-section" id="research">
       <div class="resume-section-content">
-          <h2 class="mb-5">Link of Interest</h2>
-          {% for link in links %}
-          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-              <div class="flex-grow-1">
-                <h3 class="mb-0"><a href="#">{{ link.title }}</a></h3>
-              </div>
-          </div>
-          {% endfor %}
+        {% if document == True %}
+        <h2 class="mb-5">Download Resources</h2>
+        {% for download in downloads %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0"><a href="{{ download.document.url }}" target="_blank">{{ download.title }}</a></h3>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if profile == True %}
+        <h2 class="mb-5">Profiles</h2>
+        {% for link in links %}
+        {% if link.kind_of_link == 2 %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0"><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></h3>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        {% if links_of == True %}
+        <h2 class="mb-5">Link of Interest</h2>
+        {% for link in links %}
+        {% if link.kind_of_link == 1 %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0"><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></h3>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        {% if mystuff == True %}
+        <h2 class="mb-5">My Stuff</h2>
+        {% for link in links %}
+        {% if link.kind_of_link == 3 %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0"><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></h3>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
       </div>
   </section>
 {% endblock %}

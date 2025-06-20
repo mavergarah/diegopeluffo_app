@@ -1,5 +1,6 @@
 from django.db import models
 from django_summernote.fields import SummernoteTextField
+from .data import LINKS_CHOICES, RESEARCH_CHOICES
 
 # Create your models here.
 class PersonalInfo(models.Model):
@@ -92,6 +93,14 @@ class LinkInterest(models.Model):
         verbose_name="Link URL"
     )
 
+    kind_of_link = models.PositiveSmallIntegerField(
+        choices=LINKS_CHOICES,
+        verbose_name='Kind of Link',
+        null=False,
+        blank=False,
+        default=200
+    )
+
     def __str__(self):
         return self.title
 
@@ -114,6 +123,14 @@ class ResearchLine(models.Model):
         verbose_name="Research Description",
     )
 
+    kind_of_research = models.PositiveSmallIntegerField(
+        choices=RESEARCH_CHOICES,
+        verbose_name='Kind of Research',
+        null=False,
+        blank=False,
+        default=200
+    )
+
     url = models.URLField(
         max_length=300,
         blank=True,
@@ -127,3 +144,22 @@ class ResearchLine(models.Model):
     class Meta:
         verbose_name = "Research"
         verbose_name_plural = "Researches"
+
+class DownloadDocument(models.Model):
+    title = models.TextField(
+        max_length=200,
+        blank=True,
+        null=True,
+        verbose_name="Link Title",
+    )
+
+    document = models.FileField(
+        upload_to='documents/'
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Download Document"
+        verbose_name_plural = "Download Documents"

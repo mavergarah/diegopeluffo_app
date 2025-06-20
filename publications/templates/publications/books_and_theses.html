@@ -11,7 +11,7 @@
             {% for book in books %}
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0">{{ book.title }}</h3>
+                    <h3 class="mb-0"><a href="{{ book.url }}">{{ book.title }}</a></h3>
                     <div class="subheading mb-3">{{ book.authors }}</div>
                     <p>{{ book.publishing }}</p>
                     <p>{{ book.category }}</p>
@@ -25,7 +25,7 @@
             {% for thes in theses %}
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0">{{ thes.title }}</h3>
+                    <h3 class="mb-0"><a href="{{ book.url }}">{{ thes.title }}</a></h3>
                     <div class="subheading mb-3">{{ thes.author }}</div>
                     <p>{{ thes.publishing }}</p>
                     <p>{{ thes.category }}</p>

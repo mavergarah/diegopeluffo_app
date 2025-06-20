@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import PersonalInfo, LinkInterest, ResearchLine
+from .models import PersonalInfo, LinkInterest, ResearchLine, DownloadDocument
 
 @admin.register(PersonalInfo)
 class PersonalInfoAdmin(admin.ModelAdmin):
@@ -63,6 +63,7 @@ class LinkInterestAdmin(admin.ModelAdmin):
             'fields': (
                 'title',
                 'url',
+                'kind_of_link',
             ),
         }),
     )
@@ -92,6 +93,34 @@ class ResearchLineAdmin(admin.ModelAdmin):
                 'title',
                 'url',
                 'description',
+                'kind_of_research',
+            ),
+        }),
+    )
+
+@admin.register(DownloadDocument)
+class DownloadDocumentAdmin(admin.ModelAdmin):
+    def has_delete_permission(self, request, obj=None):
+        return True
+
+    def has_add_permission(self, request, obj=None):
+        return True
+
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if 'delete_selected' in actions:
+            del actions['delete_selected']
+        return actions
+
+    list_display = (
+        'title',
+    )
+
+    fieldsets = (
+        ('personal item', {
+            'fields': (
+                'title',
+                'document',
             ),
         }),
     )

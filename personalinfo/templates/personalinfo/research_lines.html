@@ -7,14 +7,35 @@
   <section class="resume-section" id="research">
       <div class="resume-section-content">
           <h2 class="mb-5">Research Lines</h2>
+          {% if current == True %}
+          <h3 class="mb-0">Current Research Lines</h3>
+          <hr>
           {% for research in researches %}
+          {% if research.kind_of_research == 1 %}
           <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
               <div class="flex-grow-1">
-                  <h3 class="mb-0">{{ research.title }}</h3>
+                  <h4 class="mb-0"><a href="{{ research.url }}" target="_blank">{{ research.title }}</a></h4>
                   <p>{{ research.description }}</p>
               </div>
           </div>
+          {% endif %}
           {% endfor %}
+          {% endif %}
+
+          {% if past == True %}
+          <h3 class="mb-0">Past Research Lines</h3>
+          <hr>
+          {% for research in researches %}
+          {% if research.kind_of_research == 2 %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div class="flex-grow-1">
+                  <h4 class="mb-0"><a href="{{ research.url }}" target="_blank">{{ research.title }}</a></h4>
+                  <p>{{ research.description }}</p>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
       </div>
   </section>
 {% endblock %}
